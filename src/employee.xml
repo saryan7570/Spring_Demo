@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+    
+	<bean id="employee" class="com.cg.editor.Employee">
+		<property name="date">
+			<value>2019-08-13</value>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.sql.Date" value="com.cg.editor.SqlDateEditor"></entry>
+			</map>
+		</property>
+	</bean>
+</beans>
